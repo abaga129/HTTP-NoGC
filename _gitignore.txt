@@ -1,0 +1,14 @@
+.dub
+docs.json
+__dummy.html
+docs/
+nogchttp.so
+nogchttp.dylib
+nogchttp.dll
+nogchttp.a
+nogchttp.lib
+nogchttp-test-*
+*.exe
+*.o
+*.obj
+*.lst
