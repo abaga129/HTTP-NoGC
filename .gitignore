@@ -1,0 +1,5 @@
+.dub
+*.obj
+*.a
+*.exe
+*.out
