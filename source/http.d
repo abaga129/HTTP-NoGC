@@ -3,6 +3,7 @@ module http;
 import core.stdc.stdlib;
 import core.stdc.stdio;
 import core.stdc.string;
+import dplug.core.nogc;
 
 version(Windows)
 {
@@ -16,10 +17,10 @@ version(linux)
     import core.sys.linux.unistd;
 }
 
-const(char)[] sendHTTPRequest(string hostname, string port)
+const(char)[] httpRequest(const(char)[] hostname, const(char)[] port) nothrow @nogc
 {
-    Socket!("localhost", "8080") sock = new Socket!("localhost", "8080")();
-    sock.initialize();
+    Socket sock = mallocNew!Socket;
+    sock.initialize(hostname, port);
     sock.sendData("GET / HTTP/1.1\r\n");
     sock.sendData("Host: localhost\r\n\r\n");
     const(char)[] recvData = sock.recieveData();
@@ -27,11 +28,13 @@ const(char)[] sendHTTPRequest(string hostname, string port)
     return recvData;
 }
 
-class Socket(string hostname, string port)
+class Socket
 {
 public:
+nothrow:
+@nogc:
 
-    void initialize()
+    void initialize(const(char)[] hostname, const(char)[] port)
     {
         version(Windows)
         {

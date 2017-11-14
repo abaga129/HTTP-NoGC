@@ -5,5 +5,11 @@
 	],
 	"description": "A",
 	"copyright": "Copyright © 2017, Ethan Reker",
-	"license": "MIT"
+	"license": "MIT",
+	"dflags": [
+		"wsock32.lib", "WS2_32.lib", "advapi32.lib"
+	],
+	"dependencies": {
+		"dplug:core": "~>5.0.8"
+	}
 }
