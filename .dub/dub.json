@@ -1,6 +1,8 @@
 {
 	"dub": {
-		"lastUpgrade": "2017-11-14T12:35:13.0002129",
-		"cachedUpgrades": {}
+		"lastUpgrade": "2018-02-05T13:29:48.1755141",
+		"cachedUpgrades": {
+			"dplug": "5.0.12"
+		}
 	}
 }
