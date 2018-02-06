@@ -1,6 +1,6 @@
-module HttpRequest;
+module httprequest;
 
-import SocketNoGC;
+import socketnogc;
 import error;
 
 import core.stdc.stdlib;

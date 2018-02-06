@@ -2,7 +2,7 @@ module posixsocket;
 
 version(linux)
 
-import ISocketNoGc;
+import isocketnogc;
 import core.stdc.stdlib;
 import core.stdc.stdio;
 import core.stdc.string;

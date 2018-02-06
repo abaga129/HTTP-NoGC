@@ -1,6 +1,6 @@
-module SocketNoGC;
+module socketnogc;
 
-import ISocketNoGc;
+import isocketnogc;
 import posixsocket;
 import dplug.core.nogc;
 

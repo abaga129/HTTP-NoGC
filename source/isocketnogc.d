@@ -1,4 +1,4 @@
-module ISocketNoGc;
+module isocketnogc;
 
 interface ISocketNoGc
 {

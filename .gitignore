@@ -12,3 +12,4 @@ nogchttp-test-*
 *.o
 *.obj
 *.lst
+nogchttp-test-library
