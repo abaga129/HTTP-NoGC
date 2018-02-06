@@ -2,11 +2,11 @@ module ISocketNoGc;
 
 interface ISocketNoGc
 {
-    int Connect(string server, int port);
+    int Connect(string server, int port) nothrow @nogc;
 
-    int Send(byte[] data);
+    int Send(byte[] data) nothrow @nogc;
 
-    int Recieve(char[] buffer);
+    int Recieve(char[] buffer) nothrow @nogc;
 
-    int Close();
+    int Close() nothrow @nogc;
 }

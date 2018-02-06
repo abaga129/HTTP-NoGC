@@ -16,6 +16,8 @@ version(linux)
 
 class PosixSocket : ISocketNoGc
 {
+nothrow:
+@nogc:
     override int Connect(string server, int port)
     {
         if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)

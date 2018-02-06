@@ -2,14 +2,17 @@ module SocketNoGC;
 
 import ISocketNoGc;
 import posixsocket;
+import dplug.core.nogc;
 
 class SocketNoGC : ISocketNoGc
 {
+nothrow:
+@nogc:
     this()
     {
         version(linux)
         {
-            sockAdapter = new PosixSocket();
+            sockAdapter = mallocNew!PosixSocket();
         }
     }
 
