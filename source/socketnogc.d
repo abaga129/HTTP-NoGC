@@ -1,8 +1,12 @@
 module socketnogc;
 
 import isocketnogc;
-import posixsocket;
 import dplug.core.nogc;
+
+version(linux)
+    import posixsocket;
+else version(Windows)
+    import winsocket;
 
 class SocketNoGC : ISocketNoGc
 {
@@ -13,6 +17,10 @@ nothrow:
         version(linux)
         {
             sockAdapter = mallocNew!PosixSocket();
+        }
+        version(Windows)
+        {
+            sockAdapter = mallocNew!WinSocket();
         }
     }
 

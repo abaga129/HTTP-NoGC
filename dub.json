@@ -6,7 +6,7 @@
 	"description": "A",
 	"copyright": "Copyright © 2017, Ethan Reker",
 	"license": "MIT",
-	"dflags-windows": [
+	"dflags-windows-ldc": [
 		"wsock32.lib", "WS2_32.lib", "advapi32.lib"
 	],
 	"dependencies": {

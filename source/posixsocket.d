@@ -1,18 +1,18 @@
 module posixsocket;
 
 version(linux)
-
+{
+    
 import isocketnogc;
 import core.stdc.stdlib;
 import core.stdc.stdio;
 import core.stdc.string;
 import dplug.core.nogc;
-version(linux)
-{
-    import core.sys.posix.netinet.in_;
-    import core.sys.linux.sys.socket;
-    import core.sys.linux.unistd;
-}
+
+import core.sys.posix.netinet.in_;
+import core.sys.linux.sys.socket;
+import core.sys.linux.unistd;
+
 
 class PosixSocket : ISocketNoGc
 {
@@ -75,4 +75,6 @@ private:
     sockaddr_in serv_addr;
     char *hello = cast(char*)"Hello from client";
     //char[1024] buffer= 0;
+}
+
 }
