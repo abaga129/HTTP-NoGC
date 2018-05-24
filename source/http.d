@@ -46,7 +46,7 @@ nothrow:
         header = concat(cast(const char*)header, cast(const char*)contentLength);
         header = concat(cast(const char*)header, cast(const char*)"\r\n\r\n");
         header = concat(cast(const char*)header, cast(const char*) contentBody);
-        header = concat(cast(const char*)header, cast(const char*)"\r\n\r\n");
+        header = concat(cast(const char*)header, cast(const char*)"\r\n");
         socket.Send(cast(byte[])header);
         char[] buffer = (cast (char*)malloc(char.sizeof * 5024))[0..5024];
         socket.Recieve(buffer);
