@@ -6,6 +6,7 @@ import error;
 import core.stdc.stdlib;
 import core.stdc.string;
 import dplug.core.nogc;
+import core.stdc.stdio;
 
 enum Method
 {
@@ -72,9 +73,12 @@ nothrow:
         this(url, iport);
     }
 
-    void setMethod(Method m)
+    void send()
     {
-        //header = methodToString(m) ~ " / HTTP/1.1\r\n";
+        socket.Send(cast(byte[])"GET /authentication HTTP/1.1\r\n\r\n");
+        char[1024] buffer;
+        socket.Recieve(buffer);
+        printf("%s\n\n", buffer.ptr);
     }
 
 private:
@@ -85,7 +89,7 @@ private:
 
 unittest
 {
-    import dplug.core.nogc;
-    HTTPRequest request = mallocNew!HTTPRequest("localhost", 8080);
-    request.setMethod(Method.GET);
+    // import dplug.core.nogc;
+    // HTTPRequest request = mallocNew!HTTPRequest("127.0.0.1", 4000);
+    // request.send();
 }

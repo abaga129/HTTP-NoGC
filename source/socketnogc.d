@@ -50,14 +50,14 @@ private:
 
 unittest
 {
-    import std.stdio;
+    // import std.stdio;
 
-    char[] buffer = new char[120];
-    SocketNoGC socket = new SocketNoGC();
-    socket.Connect("localhost", 8080);
-    socket.Send(cast(byte[])"Hello world!");
-    socket.Recieve(buffer);
-    socket.Close();
+    // char[] buffer = new char[120];
+    // SocketNoGC socket = new SocketNoGC();
+    // socket.Connect("127.0.0.1", 3000);
+    // socket.Send(cast(byte[])"Hello world!");
+    // socket.Recieve(buffer);
+    // socket.Close();
 
-    writeln(cast(string)buffer);
+    // writeln(cast(string)buffer);
 }
