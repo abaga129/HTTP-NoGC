@@ -31,7 +31,7 @@ nothrow:
         return response;
     }
 
-    static StatusCode Post(string server, string queryString, string contentBody, int port = 80)
+    static StatusCode Post(string server, string queryString, string contentBody, int port = 80, string contentType = "application/json")
     {
         SocketNoGC socket = mallocNew!SocketNoGC();
         socket.Connect(cast(string)server, port);
@@ -41,7 +41,9 @@ nothrow:
         char[] header = concat(cast(const char*)"POST ", cast(const(char*))queryString);
         header = concat(cast(const char*)header, cast(const char*)" ");
         header = concat(cast(const char*)header, cast(const char*)"HTTP/1.1\r\n");
-        header = concat(cast(const char*)header, cast(const char*)"Content-Type: text/plain\r\n");
+        header = concat(cast(const char*)header, cast(const char*)"Content-Type: ");
+        header = concat(cast(const char*)header, cast(const char*)contentType);
+        header = concat(cast(const char*)header, cast(const char*)"\r\n");
         header = concat(cast(const char*)header, cast(const char*)"Content-Length: ");
         header = concat(cast(const char*)header, cast(const char*)contentLength);
         header = concat(cast(const char*)header, cast(const char*)"\r\n\r\n");
@@ -54,6 +56,9 @@ nothrow:
         StatusCode response = mallocNew!(StatusCode)(buffer);
         return response;
     }
+
+private:
+    string _contentType = "application/json";
 }
 
 unittest
@@ -62,7 +67,9 @@ unittest
     printf(s.Data.ptr);
     printf("\n\n");
 
-    auto postResult = Http!(string).Post("127.0.0.1", "/", "This is some content", 4000);
+    string contentBody = "{ \"username\" : \"Ethan Reker\" }";
+
+    auto postResult = Http!(string).Post("127.0.0.1", "/", contentBody, 4000);
     printf(postResult.Data.ptr);
     printf("\n");
 }
