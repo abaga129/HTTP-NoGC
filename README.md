@@ -1,4 +1,4 @@
-# NoGCHTTP
+# HTTP-NoGC
 
 ## Send HTTP Requests from D without using the runtime
 
