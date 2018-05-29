@@ -39,8 +39,7 @@ nothrow:
         char* contentLength = cast(char*)malloc(char.sizeof * 32);
         sprintf(contentLength, "%d".ptr, contentBody.length);
         char[] header = concat(cast(const char*)"POST ", cast(const(char*))queryString);
-        header = concat(cast(const char*)header, cast(const char*)" ");
-        header = concat(cast(const char*)header, cast(const char*)"HTTP/1.1\r\n");
+        header = concat(cast(const char*)header, cast(const char*)" HTTP/1.1\r\n");
         header = concat(cast(const char*)header, cast(const char*)"Content-Type: ");
         header = concat(cast(const char*)header, cast(const char*)contentType);
         header = concat(cast(const char*)header, cast(const char*)"\r\n");
