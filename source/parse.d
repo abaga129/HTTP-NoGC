@@ -21,8 +21,8 @@ char** parseResponse(string response) nothrow @nogc
     int count = 0;
     char c = ' ';
     int last = 0;
-    ulong total_len = strlen(cresponse);
-    ulong word_len = strlen(delim);
+    int total_len = cast(int)strlen(cresponse);
+    int word_len = cast(int)strlen(delim);
 
     int current = 0;
     int buffer_count = 0;
@@ -61,8 +61,8 @@ char** parseResponse(string response) nothrow @nogc
 
 int wordCount(char* input, const(char*) word) nothrow @nogc
 {
-    ulong total_len = strlen(input);
-    ulong word_len = strlen(word);
+    int total_len = cast(int)strlen(input);
+    int word_len = cast(int)strlen(word);
 
     int count = 0;
     char c = ' ';
